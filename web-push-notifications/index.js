@@ -1,7 +1,7 @@
 var endpoint;
 var key;
 var authSecret;
-
+//
 // Register a Service Worker.
 navigator.serviceWorker.register('service-worker.js')
   .then(function(registration) {
