@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Push Notifications</title>
+</head>
+<body>
+    <h1>Browser Push Notifications Example</h1>
+    <button id="notifyBtn">Show Notification</button>
+
+    <script>
+        // Function to check notification permission and show notification
+        function showNotification() {
+            if (Notification.permission === 'granted') {
+                new Notification('Hello!', {
+                    body: 'This is a push notification.',
+                    icon: 'notification-icon.png' // Optional: add your icon here
+                });
+            } else if (Notification.permission !== 'denied') {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        new Notification('Hello!', {
+                            body: 'This is a push notification.',
+                            icon: 'notification-icon.png' // Optional: add your icon here
+                        });
+                    }
+                });
+            }
+        }
+
+        // Event listener for the button
+        document.getElementById('notifyBtn').addEventListener('click', showNotification);
+    </script>
+</body>
+</html>

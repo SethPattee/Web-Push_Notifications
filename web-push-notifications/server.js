@@ -3,7 +3,7 @@ var app = express();
 var webPush = require('web-push');
 var bodyParser = require('body-parser');
 
-app.set('port', 5000);
+app.set('port', 5001);
 app.use(express.static(__dirname + '/'));
 app.use(bodyParser.json());
 
@@ -23,6 +23,9 @@ app.post('/sendNotification', function(req, res) {
 
   const subscription = {
     endpoint: req.body.endpoint,
+
+
+    
     keys: {
       p256dh: req.body.key,
       auth: req.body.authSecret
