@@ -58,3 +58,11 @@ def send_notification():
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
+
+
+#to run
+#conda create -n push-notification-env python=3.9
+#conda activate push-notification-env
+#pip install flask pywebpush
+#python path/to/your/server.py
+#Now open http://localhost:5000
